@@ -6,6 +6,8 @@ public class CustomerNamePanel extends JPanel {
     private JTextField customer_name_textfield;
     private JButton customer_name_button;
     public CustomerNamePanel(){
+        this.setName("CustomerNamePanel");
+
         customer_name_label = new JLabel("Enter Customer Name");
         customer_name_label.setName("CustomerNameLabel");
 
@@ -17,7 +19,6 @@ public class CustomerNamePanel extends JPanel {
         customer_name_button.setName("CustomerNameButton");
         customer_name_button.setText("Go");
 
-        this.setName("CustomerNamePanel");
         this.add(customer_name_label);
         this.add(customer_name_textfield);
         this.add(customer_name_button);
