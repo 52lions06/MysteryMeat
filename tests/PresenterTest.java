@@ -20,6 +20,15 @@ public class PresenterTest {
         assertEquals("CustomerNamePanel",presenter.getCurrentScreen().getName());
     }
 
+    @Test
+    public void testCustomerNameGoButtonCreatesOrderWithCustomerName(){
+        Presenter presenter = new Presenter(new MysteryMeatFrame());
+        String john_carter = "John Carter";
+        ((CustomerNamePanel) presenter.getCurrentScreen()).getCustomer_name_TextField().setText(john_carter);
+        ((CustomerNamePanel) presenter.getCurrentScreen()).getCustomer_name_button().doClick();
+        assertEquals(john_carter, presenter.getOrder().getCustomerName());
+    }
+
 
 
 }

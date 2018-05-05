@@ -25,5 +25,12 @@ public class CustomerNamePanel extends JPanel {
 
     }
 
+    public JButton getCustomer_name_button(){
+        return this.customer_name_button;
+    }
 
+
+    public JTextField getCustomer_name_TextField() {
+        return this.customer_name_textfield;
+    }
 }
