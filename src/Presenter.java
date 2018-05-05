@@ -1,21 +1,21 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Presenter {
 
     private MysteryMeatFrame presenterFrame;
-    private CustomerNamePanel presenterPanel;
+
+    private ContentPanel contentPanel;
 
     private Order order;
 
         public Presenter(MysteryMeatFrame mysteryMeatFrame) {
         this.presenterFrame = mysteryMeatFrame;
-        presenterPanel = new CustomerNamePanel();
-        mysteryMeatFrame.setContentPane(presenterPanel);
+        contentPanel = new ContentPanel();
+        mysteryMeatFrame.setContentPane(contentPanel);
+        contentPanel.getCustomerNamePanel().getCustomer_name_button().addActionListener(new CustomerNameButtonActionListener());
 
-        presenterPanel.getCustomer_name_button().addActionListener(new CustomerNameButtonActionListener());
         mysteryMeatFrame.revalidate();
     }
 
@@ -23,8 +23,8 @@ public class Presenter {
         return this.presenterFrame;
     }
 
-    public JPanel getCurrentScreen() {
-        return this.presenterPanel;
+    public JPanel getContentPanel() {
+        return this.contentPanel;
     }
 
     public Order getOrder() {
@@ -38,9 +38,9 @@ public class Presenter {
     private class CustomerNameButtonActionListener implements ActionListener{
         @Override
         public void actionPerformed(ActionEvent e) {
-            String customer_name = ((CustomerNamePanel) getCurrentScreen()).getCustomer_name_TextField().getText();
+            String customer_name = ((ContentPanel) getContentPanel()).getCustomerNamePanel().getCustomer_name_TextField().getText();
             setOrder(new Order(customer_name));
-            System.out.println(getOrder().getCustomerName()); 
+            System.out.println(getOrder().getCustomerName());
         }
     }
 
