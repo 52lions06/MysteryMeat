@@ -27,4 +27,17 @@ public class CustomerNamePanelTest {
         assertEquals("Enter Customer Name", customer_name_label.getText());
     }
 
+    @Test
+    public void testNameTextFieldIsValid(){
+        JTextField customer_name_textField = (JTextField) panel.getComponents()[1];
+        assertEquals("CustomerTextField", customer_name_textField.getName());
+    }
+
+    @Test
+    public void testNameButtonIsValid(){
+        JButton customer_name_button = (JButton) panel.getComponents()[2];
+        assertEquals("CustomerNameButton", customer_name_button.getName());
+        assertEquals("Go", customer_name_button.getText());
+    }
+
 }
