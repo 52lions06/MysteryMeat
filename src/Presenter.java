@@ -15,8 +15,10 @@ public class Presenter {
         contentPanel = new ContentPanel();
         mysteryMeatFrame.setContentPane(contentPanel);
         contentPanel.getCustomerNamePanel().getCustomer_name_button().addActionListener(new CustomerNameButtonActionListener());
+        contentPanel.getMenuItemPanel().getAddCokeButton().addActionListener(new MenuButtonActionListner());
 
-        mysteryMeatFrame.revalidate();
+
+            mysteryMeatFrame.revalidate();
     }
 
     public MysteryMeatFrame getFrame() {
@@ -41,6 +43,19 @@ public class Presenter {
             String customer_name = ((ContentPanel) getContentPanel()).getCustomerNamePanel().getCustomer_name_TextField().getText();
             setOrder(new Order(customer_name));
             System.out.println(getOrder().getCustomerName());
+        }
+    }
+
+    private class MenuButtonActionListner implements ActionListener{
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+            if (getOrder() == null) {
+                String customer_name = ((ContentPanel) getContentPanel()).getCustomerNamePanel().getCustomer_name_TextField().getText();
+                setOrder(new Order(customer_name));
+            }
+            getOrder().addItem(new Coke());
+            System.out.println(getOrder().getItem(0).getClass());
         }
     }
 

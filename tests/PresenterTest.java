@@ -39,6 +39,18 @@ public class PresenterTest {
 
     @Test
     public void testpresenterHasMenuItemsPanel(){
+        assertEquals("MenuItemPanel", ((ContentPanel) presenter.getContentPanel()).getMenuItemPanel().getName());
+    }
+
+    @Test
+    public void testCokeButtonAddsCokeToTheOrder(){
+        ((ContentPanel) presenter.getContentPanel()).getCustomerNamePanel().getCustomer_name_button().doClick();
+        ((ContentPanel) presenter.getContentPanel()).getMenuItemPanel().getAddCokeButton().doClick();
+        assertEquals(1, presenter.getOrder().getOrderSize());
+
+//        assertEquals(Class<Coke, presenter.getOrder().getItem(0).getClass());
+        assertTrue(presenter.getOrder().getItem(0) instanceof Coke);
+
 
     }
 
