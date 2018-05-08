@@ -38,7 +38,7 @@ public class PresenterTest {
     }
 
     @Test
-    public void testpresenterHasMenuItemsPanel(){
+    public void testPresenterHasMenuItemsPanel(){
         assertEquals("MenuItemPanel", ((ContentPanel) presenter.getContentPanel()).getMenuItemPanel().getName());
     }
 
@@ -53,5 +53,12 @@ public class PresenterTest {
 
 
     }
+
+    @Test
+    public void testPresenterHasOrderDisplayPanel(){
+        assertEquals("OrderDisplayPanel", ((ContentPanel) presenter.getContentPanel()).getOrderDisplayPanel().getName());
+    }
+
+
 
 }

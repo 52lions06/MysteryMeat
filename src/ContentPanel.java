@@ -1,12 +1,11 @@
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
-import java.nio.file.attribute.UserPrincipalNotFoundException;
 
 public class ContentPanel extends JPanel {
 
     private CustomerNamePanel customerNamePanel;
     private  MenuItemPanel menuItemPanel;
+    private OrderDisplayPanel orderDisplayPanel;
 
     public ContentPanel(){
         super(new BorderLayout());
@@ -15,6 +14,8 @@ public class ContentPanel extends JPanel {
         this.add(customerNamePanel, BorderLayout.PAGE_START);
         menuItemPanel = new MenuItemPanel();
         this.add(menuItemPanel, BorderLayout.LINE_START);
+        orderDisplayPanel = new OrderDisplayPanel();
+        this.add(orderDisplayPanel, BorderLayout.LINE_END);
     }
 
     public CustomerNamePanel getCustomerNamePanel() {
@@ -23,5 +24,9 @@ public class ContentPanel extends JPanel {
 
     public MenuItemPanel getMenuItemPanel() {
         return menuItemPanel;
+    }
+
+    public OrderDisplayPanel getOrderDisplayPanel() {
+        return orderDisplayPanel;
     }
 }
