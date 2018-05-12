@@ -1,5 +1,8 @@
 import org.junit.Before;
 import org.junit.Test;
+
+import javax.swing.*;
+
 import static org.junit.Assert.*;
 
 public class OrderDisplayPanelTest {
@@ -22,11 +25,22 @@ public class OrderDisplayPanelTest {
 
     @Test
     public void testOrderDisplayPanelArrayListOfItems_Has_One_Item(){
-        orderDisplayPanel = new OrderDisplayPanel();
+//        orderDisplayPanel = new OrderDisplayPanel();
+//        ((ContentPanel) presenter.getContentPanel()).getMenuItemPanel().getAddCokeButton().doClick();
+//        orderDisplayPanel.updateOrderDisplay(presenter.getOrder());
+//        assertEquals(1, orderDisplayPanel.getListOfItems().size());
+//
+    }
+
+    @Test
+    public void testOderDisplayhasStaticHeaderLabel() {
+        assertEquals("ITEM (Options)     Qty.     Unit.     Price.",((JLabel)((ContentPanel) presenter.getContentPanel()).getOrderDisplayPanel().getComponents()[1]).getText());
+    }
+
+    @Test
+    public void testCokeOnOrderDisplayShowsQuantityAndPrice() {
         ((ContentPanel) presenter.getContentPanel()).getMenuItemPanel().getAddCokeButton().doClick();
-        orderDisplayPanel.updateOrderDisplay(presenter.getOrder());
-        assertEquals(1, orderDisplayPanel.getListOfItems().size());
-        
+        assertEquals("Coke   1   1.75", ((JLabel)((ContentPanel) presenter.getContentPanel()).getOrderDisplayPanel().getComponents()[2]).getText());
     }
 
 }

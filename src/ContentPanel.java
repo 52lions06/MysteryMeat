@@ -15,6 +15,7 @@ public class ContentPanel extends JPanel {
         menuItemPanel = new MenuItemPanel();
         this.add(menuItemPanel, BorderLayout.LINE_START);
         orderDisplayPanel = new OrderDisplayPanel();
+        orderDisplayPanel.setLayout( new BoxLayout(orderDisplayPanel, BoxLayout.PAGE_AXIS));
         this.add(orderDisplayPanel, BorderLayout.LINE_END);
     }
 

@@ -143,4 +143,40 @@ public class OrderTest {
         assertEquals(2,order.getTipAmount(),0);
     }
 
+    @Test
+    public void testConsumableItemHasDisplayName(){
+        Taco taco = new Taco();
+        assertEquals("Taco", taco.getItemDisplayName());
+    }
+
+    @Test
+    public void testDefaultMenuItemDisplayNames(){
+        Taco taco = new Taco();
+        Coke coke = new Coke();
+        Horchata horchata = new Horchata();
+        Quesadilla quesadilla = new Quesadilla();
+
+        assertEquals("Taco", taco.getItemDisplayName());
+        assertEquals("Coke", coke.getItemDisplayName());
+        assertEquals("Horchata", horchata.getItemDisplayName());
+        assertEquals("Ques", quesadilla.getItemDisplayName());
+    }
+
+    @Test
+    public void testConsumableItemOptionsAreAppendedToDisplayName(){
+        Taco taco = new Taco();
+        taco.addGuacamole();
+        Coke coke = new Coke();
+        coke.setDiet(true);
+        Horchata horchata = new Horchata();
+        horchata.setIceChoice(Ice.SHAVED);
+        Quesadilla quesadilla = new Quesadilla();
+        quesadilla.addMeat();
+
+        assertEquals("Taco (Guac)", taco.getItemDisplayName());
+        assertEquals("Coke (Diet)", coke.getItemDisplayName());
+        assertEquals("Ques (Meat)", quesadilla.getItemDisplayName());
+        assertEquals("Horchata (SHAVED)", horchata.getItemDisplayName());
+    }
+
 }

@@ -20,7 +20,9 @@ public class MysteryMeatFrameTest {
     @Test
     public void testHasCustomerNamePanel(){
         MysteryMeatFrame frame = new MysteryMeatFrame();
-        assertEquals("CustomerNamePanel",frame.getContentPane().getName());
+        ContentPanel contentPanel = new ContentPanel();
+        frame.setContentPane(contentPanel);
+        assertEquals("CustomerNamePanel",contentPanel.getCustomerNamePanel().getName());
 
     }
 

@@ -15,11 +15,13 @@ public abstract class Beverage extends ConsumableItem {
 
     public void setDiet(boolean diet){
         this.isDiet = diet;
+        setItemDisplayName(getItemDisplayName()+ " (Diet)");
 
     }
 
     public void setIceChoice(Ice iceChoice) {
         this.iceChoice = iceChoice;
+        setItemDisplayName(getItemDisplayName()+" ("+iceChoice.toString()+")");
     }
 
     public Ice getIceChoice(){

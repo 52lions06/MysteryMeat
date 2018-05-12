@@ -3,6 +3,7 @@ public class Taco extends ConsumableItem{
 
     public Taco() {
         super(3.0);
+        setItemDisplayName("Taco");
     }
 
 
@@ -13,5 +14,6 @@ public class Taco extends ConsumableItem{
     public void addGuacamole() {
         this.hasGuacamole = true;
         this.setUnitPrice(this.getUnitPrice()+ .75);
+        setItemDisplayName(getItemDisplayName()+ " (Guac)");
     }
 }

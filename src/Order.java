@@ -44,10 +44,16 @@ public class Order {
         receipt = new Receipt();
 
     }
-
+    public void setCustomerName(String custName){
+        this.customerName = custName;
+    }
     public void addItem(ConsumableItem orderedItem) {
         items.add(orderedItem);
         receipt.addToSubtotal(orderedItem.getUnitPrice());
+    }
+
+    public void removeItem(int index){
+        this.items.remove(index);
     }
 
     public int getOrderSize() {
@@ -99,6 +105,8 @@ public class Order {
         }
         return count;
     }
+
+
 
     public double getTotal() {
         return getSubtotal() * (1+getTaxRate()) - getDiscountAmount();

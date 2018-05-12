@@ -2,7 +2,8 @@ public abstract class ConsumableItem {
 
     private double unitPrice;
 
-    private String itemName;
+    private String itemDisplayName;
+
 
     public ConsumableItem(double price){
         this.unitPrice = price;
@@ -17,12 +18,14 @@ public abstract class ConsumableItem {
 
     }
 
-    public void setItemName(String name){
-        this.itemName = name;
+    public void setItemDisplayName(String name){
+        this.itemDisplayName = name;
 
     }
 
-    public String getItemName(){
-        return this.itemName;
+    public String getItemDisplayName(){
+        return this.itemDisplayName;
     }
+
+
 }
